@@ -1,0 +1,17 @@
+# This file describes a Fastly Compute package. To learn more visit:
+# https://www.fastly.com/documentation/reference/compute/fastly-toml
+
+authors = ["me@darckfast.com"]
+cloned_from = "https://github.com/fastly/compute-starter-kit-go-tinygo"
+description = ""
+language = "go"
+manifest_version = 3
+name = "edge-cold-start-fastly-go"
+service_id = "dhsiR0ctg0mxJN0bvzuCw2"
+
+[local_server]
+
+[scripts]
+  build = "tinygo build -target=wasi -o bin/main.wasm ./"
+  env_vars = ["GOARCH=wasm", "GOOS=wasip1"]
+  post_init = "go get github.com/fastly/compute-sdk-go@latest"
