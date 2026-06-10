@@ -19,7 +19,7 @@ import (
 func main() {
 	fsthttp.ServeFunc(func(ctx context.Context, w fsthttp.ResponseWriter, r *fsthttp.Request) {
 		easyjson.MarshalToWriter(types.Payload{
-			Time: time.Now().UnixMilli(),
+			Time: time.Now().UnixMicro(),
 		}, w)
 	})
 }
